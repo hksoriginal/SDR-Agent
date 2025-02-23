@@ -1,0 +1,2 @@
+REQ_PER_MIN = 100
+APP_NAME = "SDR Agent"

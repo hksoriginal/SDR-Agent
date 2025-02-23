@@ -1,0 +1,200 @@
+/* Hide Streamlit's Main Menu, Header, and Footer */
+#MainMenu,
+header,
+footer {
+    visibility: hidden;
+}
+
+/* Global Styles */
+
+/* Dark background for the app with a fade-in effect */
+.stApp {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    animation: fadeInBackground 2s ease-in;
+}
+
+/* Fade-in animation for the app background */
+@keyframes fadeInBackground {
+    from {
+        background-color: #000000;
+    }
+
+    to {
+        background-color: #1e1e1e;
+    }
+}
+
+/* Headings */
+
+/* Dark theme for headings with a slide-down effect */
+h1,
+h2,
+h3 {
+    font-family: 'Arial', sans-serif;
+    color: #e0e0e0;
+    animation: slideDown 1.0s ease-out;
+}
+
+/* Slide-down animation for headings */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Buttons */
+
+/* Customize buttons for dark theme */
+.stButton button {
+    background-color: #3a3a3a;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border: 2px solid #4CAF50;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Button hover effect with bounce animation */
+.stButton button:hover {
+    background-color: #4CAF50;
+    border: 2px solid #ffffff;
+    transform: scale(1.05);
+}
+
+/* Input Fields */
+
+/* Text input fields for dark theme */
+.stTextInput input {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border: 2px solid #4CAF50;
+    padding: 10px;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+/* Input field focus animation */
+.stTextInput input:focus {
+    border-color: #ffffff;
+}
+
+/* Sidebar */
+
+/* Customize sidebar for dark theme */
+.css-1d391kg {
+    background-color: #2e2e2e;
+    color: #e0e0e0;
+    padding: 10px;
+    border-radius: 10px;
+    animation: fadeInSidebar 1.5s ease-in;
+    width: 200px;
+    /* Adjust the width of the sidebar */
+}
+
+/* Fade-in animation for sidebar */
+@keyframes fadeInSidebar {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Sidebar heading colors with a color change effect */
+.css-1d391kg h1 {
+    color: #4CAF50;
+    transition: color 0.5s ease;
+}
+
+/* Code Block */
+
+/* Python code block styling */
+.code-block {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    padding: 15px;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;
+    animation: glow 1.5s infinite;
+    border: 1px solid #4CAF50;
+}
+
+/* Glow animation for Python code block */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #4CAF50;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #4CAF50;
+    }
+
+    100% {
+        box-shadow: 0 0 10px #4CAF50;
+    }
+}
+
+/* Custom Checkbox Toggle Button */
+
+/* Style the checkbox container */
+.stCheckbox {
+    display: inline-block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    color: #e0e0e0;
+    user-select: none;
+}
+
+/* Hide the default checkbox */
+.stCheckbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Custom toggle slider */
+.stCheckbox .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 45px;
+    background-color: #ccc;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+/* Toggle knob (circle) */
+.stCheckbox .checkmark::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Checkbox checked (active) state */
+.stCheckbox input:checked~.checkmark {
+    background-color: #4CAF50;
+}
+
+/* Move the knob when checked */
+.stCheckbox input:checked~.checkmark::after {
+    transform: translateX(20px);
+}

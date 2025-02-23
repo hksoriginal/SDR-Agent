@@ -1,0 +1,2 @@
+VALID_USERNAME = "model1api"
+VALID_PASSWORD = "model@111"

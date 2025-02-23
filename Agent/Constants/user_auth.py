@@ -1,0 +1,2 @@
+VALID_USERNAME = "agent1api"
+VALID_PASSWORD = "agent@111"
