@@ -1,7 +1,9 @@
 import json
 import logging
 import time
+import torch
 import uuid
+import gc
 from datetime import datetime
 
 from typing_extensions import Annotated
@@ -88,6 +90,9 @@ async def get_audio_transcript(
 
         end_time = time.time()
         process_time = round(end_time - start_time, 1)
+
+        torch.cuda.clear_cache()
+        gc.collect()
 
         result_response = {
             "response_id": str(uuid.uuid1()),

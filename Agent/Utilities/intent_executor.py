@@ -31,7 +31,7 @@ class IntentExecutor:
         """
         INTENT_MAP = {
             "write_email": EmailAgent().generate_email,
-            "search_dataframe": DataFrameAgent().get_filter_params
+            "search_dataframe": DataFrameAgent().get_filtred_data
         }
 
         try:
