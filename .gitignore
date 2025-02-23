@@ -121,7 +121,8 @@ ipython_config.py
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
-
+# Byte-compiled / optimized / DLL files
+__pycache__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
@@ -137,6 +138,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+agent_venv
+
+LLM_API/Model/mistral-7b-instruct-v0.2.Q5_K_M.gguf
 
 # Spyder project settings
 .spyderproject
