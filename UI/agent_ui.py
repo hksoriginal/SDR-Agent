@@ -2,6 +2,8 @@ import streamlit as st
 import base64
 import httpx
 import logging
+import pandas as pd
+import json
 
 st.set_page_config(page_title="SDR Agent", layout="wide",
                    page_icon="🤑")
@@ -68,7 +70,15 @@ if st.button("Submit"):
 
             if response:
                 st.subheader("Response:")
-                email = response.get("query_response")
+                query_response = response.get("query_response")
                 with st.expander(f"Response Body {response['process_time']}s"):
                     st.json(response)
-                st.markdown(response['query_response'])
+
+                agent_type = response.get("intent").get("intent")
+                if agent_type == "search_dataframe":
+                    data = json.loads(query_response)
+                    df = pd.DataFrame(data)
+                    st.dataframe(df)
+                else:
+                    # st.markdown(response['query_response'])
+                    st.json(response['query_response'])

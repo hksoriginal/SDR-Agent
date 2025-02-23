@@ -91,7 +91,11 @@ async def get_audio_transcript(
         end_time = time.time()
         process_time = round(end_time - start_time, 1)
 
+<<<<<<< HEAD
         torch.cuda.clear_cache()
+=======
+        torch.cuda.empty_cache()
+>>>>>>> f6f648b (new commit)
         gc.collect()
 
         result_response = {
