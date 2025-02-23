@@ -1,4 +1,5 @@
 import logging
+import pandas as pd
 from Constants.Agents.dataframe_agent_constants import DATAFRAME_AGENT_PROMPT_TEMPLATE
 from Mixins.llm_response_mixin import LLMResponseMixin
 from typing import Dict
@@ -13,6 +14,9 @@ logging.basicConfig(
 
 
 class DataFrameAgent(LLMResponseMixin):
+
+    def __init__(self):
+        self.filtered_dataframe = pd.read_csv('./DataFiles/filtered.csv')
 
     def _extract_json(self, response: str) -> Dict[str, str]:
         match = re.search(r'\{.*\}', response, re.DOTALL)
@@ -39,3 +43,14 @@ class DataFrameAgent(LLMResponseMixin):
         except Exception as e:
             logging.exception(f"Unexpected error occurred: {e}")
             return "An unexpected error occurred while generating the email."
+
+    def get_filtred_data(self, action: str):
+
+        params = self.get_filter_params(action=action)
+        column = params.get("column", "")
+        condition = params.get("condition", "")
+
+        new_df = self.filtered_dataframe[self.filtered_dataframe[column].str.contains(
+            condition, case=False, na=False)]
+
+        return new_df.to_json()

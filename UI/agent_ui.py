@@ -12,7 +12,6 @@ logging.basicConfig(
 )
 
 
-
 css_file_path = "main.css"
 try:
     with open(css_file_path) as css:
@@ -72,6 +71,4 @@ if st.button("Submit"):
                 email = response.get("query_response")
                 with st.expander(f"Response Body {response['process_time']}s"):
                     st.json(response)
-                st.markdown(response)
-                # st.markdown(email['subject'])
-                # st.markdown(email['body'])
+                st.markdown(response['query_response'])
