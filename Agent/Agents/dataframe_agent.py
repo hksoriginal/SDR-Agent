@@ -26,11 +26,9 @@ class DataFrameAgent(LLMResponseMixin):
         """
         Initializes the DataFrameAgent with a filtered DataFrame.
         """
-<<<<<<< HEAD
-        self.filtered_dataframe = pd.read_csv("./DataFiles/filtred.csv")
-=======
+
         self.filtered_dataframe = pd.read_csv("./DataFiles/filtered.csv")
->>>>>>> f6f648b (new commit)
+
 
     def _extract_json(self, response: str) -> Dict[str, Any]:
         """
@@ -108,12 +106,8 @@ class DataFrameAgent(LLMResponseMixin):
 
             new_df = self.filtered_dataframe[
                 self.filtered_dataframe[column].astype(
-<<<<<<< HEAD
-                    str).str.contains(condition.lower(), case=False, na=False)
-=======
-                    str).str.contains(condition.replace("'", ""), case=False, na=False)
->>>>>>> f6f648b (new commit)
-            ]
+
+                    str).str.contains(condition.replace("'", ""), case=False, na=False)            ]
 
             logging.info(
                 f"Data successfully filtered based on column '{column}' and condition '{condition}'.")
